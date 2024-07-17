@@ -1,11 +1,12 @@
 package com.aluracursos.literalura.repository;
 
-import org.springframework.data.jpa.repository.Query;
+import com.aluracursos.literalura.modelo.Libro;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface LibroRepository {
-//    @Query("SELECT s FROM Serie s WHERE s.totalTemporadas <= :totalTemporadas AND s.evaluacion >= :evaluacion")
-//    List<Libro> seriesPorTemporadaYEvaluacion(int totalTemporadas, Double evaluacion);
+public interface LibroRepository extends JpaRepository<Libro, Long> {
+Libro findLibroByTitulo(String titulo);
+List<Libro> findLibrosByIdiomasContaining(String idiomas);
 
 }
